@@ -4,12 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
+		<key>Pods-RWReactivePlayground.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-RWReactivePlayground.xcscheme</key>
+		<key>ReactiveCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
+		<key>1B653E01C1465755C456A8D643E3B882</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>76E32A62A606A85D34BE6C765858CA19</key>
+		<key>51F7D5D92A1C0B52796787F537DEDC49</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84A8EE36E13926E26C7410306C057967</key>
 		<dict>
 			<key>primary</key>
 			<true/>
