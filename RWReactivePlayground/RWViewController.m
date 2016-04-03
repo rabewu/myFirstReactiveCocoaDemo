@@ -24,7 +24,8 @@
 
 @implementation RWViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
   [super viewDidLoad];
   
   [self updateUIState];
@@ -39,15 +40,18 @@
   self.signInFailureText.hidden = YES;
 }
 
-- (BOOL)isValidUsername:(NSString *)username {
+- (BOOL)isValidUsername:(NSString *)username
+{
   return username.length > 3;
 }
 
-- (BOOL)isValidPassword:(NSString *)password {
+- (BOOL)isValidPassword:(NSString *)password
+{
   return password.length > 3;
 }
 
-- (IBAction)signInButtonTouched:(id)sender {
+- (IBAction)signInButtonTouched:(id)sender
+{
   // disable all UI controls
   self.signInButton.enabled = NO;
   self.signInFailureText.hidden = YES;
@@ -67,18 +71,21 @@
 
 // updates the enabled state and style of the text fields based on whether the current username
 // and password combo is valid
-- (void)updateUIState {
+- (void)updateUIState
+{
   self.usernameTextField.backgroundColor = self.usernameIsValid ? [UIColor clearColor] : [UIColor yellowColor];
   self.passwordTextField.backgroundColor = self.passwordIsValid ? [UIColor clearColor] : [UIColor yellowColor];
   self.signInButton.enabled = self.usernameIsValid && self.passwordIsValid;
 }
 
-- (void)usernameTextFieldChanged {
+- (void)usernameTextFieldChanged
+{
   self.usernameIsValid = [self isValidUsername:self.usernameTextField.text];
   [self updateUIState];
 }
 
-- (void)passwordTextFieldChanged {
+- (void)passwordTextFieldChanged
+{
   self.passwordIsValid = [self isValidPassword:self.passwordTextField.text];
   [self updateUIState];
 }
