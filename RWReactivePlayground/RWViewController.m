@@ -49,7 +49,7 @@
     RAC(self.usernameTextField, backgroundColor) =
     [validUsernameSignal
      map:^id(NSNumber *usernameValid){
-         return[usernameValid boolValue] ? [UIColor clearColor]:[UIColor yellowColor];
+         return[usernameValid boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
      }];
     
     // 同上,此处RAC为宏
@@ -60,7 +60,9 @@
     }];
     
     // 登录按钮是否可用信号
-    RACSignal *signUpActiveSignal = [RACSignal combineLatest:@[validPasswordSignal, validPasswordSignal] reduce:^id(NSNumber *usernameValid, NSNumber *passwordValid){
+    RACSignal *signUpActiveSignal =
+    [RACSignal combineLatest:@[validPasswordSignal, validPasswordSignal]
+                      reduce:^id(NSNumber *usernameValid, NSNumber *passwordValid){
         return @(usernameValid.boolValue && passwordValid.boolValue);
     }];
     
@@ -69,15 +71,16 @@
         self.signInButton.enabled = signUpActive.boolValue;
     }];
     
-    [[[[self.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-      doNext:^(id x) {
+    [[[[self.signInButton
+        rac_signalForControlEvents:UIControlEventTouchUpInside]
+       doNext:^(id x) {
           self.signInButton.enabled = NO;
           self.signInFailureText.hidden = YES;
       }]
       flattenMap:^id(id value) {
         return [self signInSignal];
     }]
-    subscribeNext:^(NSNumber *signedIn) {
+     subscribeNext:^(NSNumber *signedIn) {
         self.signInButton.enabled = YES;
         BOOL success = [signedIn boolValue];
         self.signInFailureText.hidden = success;
